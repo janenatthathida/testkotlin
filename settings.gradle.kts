@@ -6,6 +6,15 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
+pluginManagement {
+    // Include 'plugins build' to define convention plugins.
+    includeBuild("build-logic")
+}
 
-rootProject.name = "HelloTest"
-println("This is HelloTest!")
+plugins {
+    // Apply the foojay-resolver plugin to allow automatic download of JDKs
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
+
+rootProject.name = "testkotlin"
+include("app", "list", "utilities")
